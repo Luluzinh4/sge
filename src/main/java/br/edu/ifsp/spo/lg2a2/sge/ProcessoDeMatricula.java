@@ -14,22 +14,25 @@ public class ProcessoDeMatricula {
 	
 	private Curso curso;
 	private CursosRepository CursosRepository;
+	//private AlunosRepository AlunosRepository;
 	SituacaoMatricula resultado = null;
 	
 	
 	public ProcessoDeMatricula(Curso curso) {
 		this.curso = curso;
 		CursosRepository = new CursosRepository();
+		AlunosRepository = new AlunosRepository();
 	}
 
 	public SituacaoMatricula verificarExistenciaAluno(String cpf) {
 		for(Aluno aluno : CursosRepository.alunos) {
 			if(aluno.getCpf().equals(cpf)) {
-				return true;
-			}/*else {
-				return false;
-			}*/
+				resultado = SituacaoMatricula.CadastradoNoCurso;
+			}else {
+				resultado = SituacaoMatricula.Novo;
+			}
 		}
+		return resultado;
 	}
 	
 	public ComprovanteMatricula processarMatricula(DadosAluno dados) {
@@ -37,7 +40,9 @@ public class ProcessoDeMatricula {
 	}
 	
 	private String gerarProntuario() {
-		return resultado;
+		int numero;
+		if (resultado == SituacaoMatricula.Novo) {
+			
+		}
 	}
-	
 }
