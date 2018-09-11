@@ -1,7 +1,7 @@
 package br.edu.ifsp.spo.lg2a2.sge;
 
-import br.edu.ifsp.spo.lg2a2.sge.entidades.Aluno;
-import br.edu.ifsp.spo.lg2a2.sge.entidades.SituacaoMatricula;
+//import br.edu.ifsp.spo.lg2a2.sge.entidades.Aluno;
+//import br.edu.ifsp.spo.lg2a2.sge.entidades.SituacaoMatricula;
 
 //class Pessoa {
 //	private static int quantidadeInstancias;

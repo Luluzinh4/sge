@@ -17,6 +17,10 @@ public class CursosRepository {
 		CursosRepository.alunos.addAll(alunos);
 	}
 
+	public CursosRepository() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Curso buscarPorCodigo(String codigo) {
 		for(Curso curso : CursosRepository.cursos)
 		{

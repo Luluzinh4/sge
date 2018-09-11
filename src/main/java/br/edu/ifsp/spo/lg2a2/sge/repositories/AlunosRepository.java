@@ -17,7 +17,6 @@ public class AlunosRepository {
 		this.alunos.addAll(alunos);
 	}
 	
-	
 	public Aluno buscarPorCpf(String cpf) {		
 		Aluno resultado = null;
 		

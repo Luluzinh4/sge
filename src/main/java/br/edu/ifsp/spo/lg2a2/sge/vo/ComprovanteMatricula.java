@@ -11,9 +11,11 @@ public class ComprovanteMatricula {
 	public Aluno getAluno() {
 		return aluno;
 	}
+	
 	public Turma getTurma() {
 		return turma;
 	}
+	
 	public ComprovanteMatricula(Aluno aluno, Turma turma) {
 		super();
 		this.aluno = aluno;

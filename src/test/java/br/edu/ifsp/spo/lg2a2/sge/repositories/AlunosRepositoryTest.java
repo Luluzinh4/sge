@@ -1,7 +1,5 @@
 package br.edu.ifsp.spo.lg2a2.sge.repositories;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
