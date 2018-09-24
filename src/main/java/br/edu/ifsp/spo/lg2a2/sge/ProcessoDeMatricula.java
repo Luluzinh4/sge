@@ -1,6 +1,7 @@
 package br.edu.ifsp.spo.lg2a2.sge;
 
 import java.util.Collection;
+import java.util.Random;
 
 import br.edu.ifsp.spo.lg2a2.sge.entidades.Aluno;
 import br.edu.ifsp.spo.lg2a2.sge.entidades.Curso;
@@ -14,9 +15,10 @@ public class ProcessoDeMatricula {
 	
 	private Curso curso;
 	private CursosRepository CursosRepository;
-	//private AlunosRepository AlunosRepository;
+	private AlunosRepository AlunosRepository;
 	SituacaoMatricula resultado = null;
 	
+	Random gerador = new Random();
 	
 	public ProcessoDeMatricula(Curso curso) {
 		this.curso = curso;
@@ -40,9 +42,17 @@ public class ProcessoDeMatricula {
 	}
 	
 	private String gerarProntuario() {
-		int numero;
-		if (resultado == SituacaoMatricula.Novo) {
-			
+		int numero = 0;
+		String prontuario;
+		if (resultado == SituacaoMatricula.Novo || resultado == SituacaoMatricula.CadastradoNoCurso) {
+			do {
+				numero = gerador.nextInt();
+			}while (numero < 10);
+		} else {
+			System.out.println("O Aluno já possui prontuário gerado no curso");
 		}
+		prontuario = String.valueOf(numero);
+		
+		return prontuario;
 	}
 }
