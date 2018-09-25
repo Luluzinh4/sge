@@ -10,7 +10,7 @@ import br.edu.ifsp.spo.lg2a2.sge.entidades.Turma;
 public class CursosRepository {
 	
 	private static Collection<Aluno> alunos = new ArrayList<Aluno>();
-	//private static Collection<Turma> turmas = new ArrayList<Turma>();
+	private static Collection<Turma> turmas = new ArrayList<Turma>();
 	private static Collection<Curso> cursos = new ArrayList<Curso>();
 	
 	public CursosRepository(Collection<Turma> turmas) {
@@ -34,13 +34,27 @@ public class CursosRepository {
 		return null;
 	}
 	
-	/*public Collection<Turma> buscarTurmas(String codigoCurso){
+	public Turma buscarTurma(Collection<Turma> codigosTurmas) {
+		for (Turma turma: CursosRepository.turmas) {
+			if(turma.getIdCurso().equals(codigosTurmas)) {
+				return turma;
+			}
+		}
+		return null;
+	}
+	
+	public Collection<Turma> buscarTurmas(String codigoCurso){
+		for(Curso curso: CursosRepository.cursos) {
+			if(curso.getCodigoCurso().equals(codigoCurso)) {
+				return curso.getTurmas();
+			}
+		}
 		return null;
 	}
 	
 	public Collection<Aluno> buscarAlunos(String codigoCurso){
 		return null;
-	}*/
+	}
 	
 	public boolean existeAlunoNoCurso(String cpf) {
 		for(Aluno aluno : CursosRepository.alunos) {

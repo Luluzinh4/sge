@@ -17,7 +17,7 @@ public class DadosAluno {
 		return email;
 	}
 	
-	public void setCpf(String cpf) {
+	/*public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	
@@ -27,7 +27,7 @@ public class DadosAluno {
 	
 	public void setEmail(String email) {
 		this.email = email;
-	}
+	}*/
 	
 	public DadosAluno(String cpf, String nome, String email) {
 		super();

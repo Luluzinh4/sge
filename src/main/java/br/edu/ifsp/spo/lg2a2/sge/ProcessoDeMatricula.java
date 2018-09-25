@@ -5,6 +5,7 @@ import java.util.Random;
 
 import br.edu.ifsp.spo.lg2a2.sge.entidades.Aluno;
 import br.edu.ifsp.spo.lg2a2.sge.entidades.Curso;
+import br.edu.ifsp.spo.lg2a2.sge.entidades.Turma;
 import br.edu.ifsp.spo.lg2a2.sge.entidades.SituacaoMatricula;
 import br.edu.ifsp.spo.lg2a2.sge.repositories.AlunosRepository;
 import br.edu.ifsp.spo.lg2a2.sge.repositories.CursosRepository;
@@ -30,7 +31,11 @@ public class ProcessoDeMatricula {
 	public SituacaoMatricula verificarExistenciaAluno(String cpf) {
 		for(Aluno aluno : CursosRepository.alunos) {
 			if(aluno.getCpf().equals(cpf)) {
-				resultado = SituacaoMatricula.CadastradoNoCurso;
+				if(CursosRepository.existeAlunoNoCurso(cpf)) {
+					resultado = SituacaoMatricula.CadastradoNoCurso;
+				} else {
+					resultado = SituacaoMatricula.Cadastrado;
+				}
 			}else {
 				resultado = SituacaoMatricula.Novo;
 			}
@@ -39,7 +44,13 @@ public class ProcessoDeMatricula {
 	}
 	
 	public ComprovanteMatricula processarMatricula(DadosAluno dados) {
-		return null;
+		Aluno aluno = new Aluno(gerarProntuario(), dados.getCpf(), dados.getNome(), dados.getEmail());
+		Collection<Turma> codigosTurmas = CursosRepository.buscarTurmas(curso.getCodigoCurso());
+		Turma turma = CursosRepository.buscarTurma(codigosTurmas);
+		
+		ComprovanteMatricula comprovante = new ComprovanteMatricula(aluno, turma);
+		
+		return comprovante;
 	}
 	
 	private String gerarProntuario() {
