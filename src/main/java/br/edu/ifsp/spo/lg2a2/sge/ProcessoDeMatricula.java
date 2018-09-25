@@ -14,6 +14,7 @@ import br.edu.ifsp.spo.lg2a2.sge.vo.DadosAluno;
 public class ProcessoDeMatricula {
 	
 	private Curso curso;
+	//private Aluno aluno;
 	private CursosRepository CursosRepository;
 	private AlunosRepository AlunosRepository;
 	SituacaoMatricula resultado = null;
@@ -49,7 +50,7 @@ public class ProcessoDeMatricula {
 				numero = gerador.nextInt();
 			}while (numero < 10);
 		} else {
-			System.out.println("O Aluno já possui prontuário gerado no curso");
+			System.out.println("O Aluno já possui prontuário gerado para o curso.\n");
 		}
 		prontuario = String.valueOf(numero);
 		
